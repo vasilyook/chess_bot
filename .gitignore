@@ -1,0 +1,3 @@
+db.sqlite3
+bots/data.py
+bots/views.py
