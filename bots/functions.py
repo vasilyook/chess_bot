@@ -14,7 +14,7 @@ def write_file(self, command):
 	text_file.close()
 
 # username = match_res.group('player_name')
-# username = match_res.group('opponent_name')
+
 def check_user(username):
 	if User.objects.filter(name=username).count() == 0:
 		user = User(name = username)
