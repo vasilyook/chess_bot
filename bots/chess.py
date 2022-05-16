@@ -1,6 +1,8 @@
 from .bot import Bot
 from .data import *
 from .functions import *
+from dotenv import load_dotenv
+import os
 import re
 
 class Chess(Bot):
@@ -23,5 +25,7 @@ class Chess(Bot):
 		update_last_command(pk, command)
 		return super().call_command()
 
-chess = Chess(token)
-chess.polling()
+# load_dotenv()
+# token = os.getenv("TOKEN")
+# chess = Chess(token)
+# chess.polling()
