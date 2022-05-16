@@ -1,3 +1,5 @@
 db.sqlite3
 bots/data.py
 bots/views.py
+bots/__pycache__
+bots/migrations/__pycache__

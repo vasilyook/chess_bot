@@ -1,8 +1,12 @@
 from django.db import models
 
-class User(models.Model):
+class TelegramUser(models.Model):
 	name = models.CharField(max_length=200)
 	telegram_id = models.BigIntegerField(default=None)
+	last_command = models.CharField(max_length=20, null=True)
+
+class User(models.Model):
+	name = models.CharField(max_length=200)
 
 class Division(models.Model):
 	name = models.CharField(max_length=20)

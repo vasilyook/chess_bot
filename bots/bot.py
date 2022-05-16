@@ -31,17 +31,29 @@ class Bot():
         def get_id(self):
             return self.get_message()['chat']['id']
 
+        def get_name(self):
+            first_name = self.get_message()['chat']['first_name']
+            last_name = self.get_message()['chat'].get('last_name','')
+            name = first_name + ' ' + last_name
+            return name
+
+        def get_username(self):
+            return self.get_message()['chat'].get('username')
+
     def send_message(self, text: str, chat_id: float):
         return self.call_method('sendMessage', {'chat_id':str(chat_id),'text':text}) 
 
     def call_method(self,method: str, params : dict={}):
         return requests.get(self.url + method, params=params).json()
 
+    def call_command(self):
+        return getattr(self, self.update.get_command())()
+
     def handle(self, update):
         self.update = self.Update(update)
 
         if self.update.get_type() == 'bot_command':
-            return getattr(self, self.update.get_command())()
+            return self.call_command()
         return self.answer()
 
     def answer(self):
