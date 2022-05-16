@@ -1,6 +1,5 @@
 # можно вынести сюда функцию и запускать в боте!
 from bots.models import User, Division, Game, TelegramUser
-import ast
 errors = []
 
 # username = match_res.group('player_name')
