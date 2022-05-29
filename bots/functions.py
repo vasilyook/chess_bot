@@ -1,5 +1,6 @@
 # можно вынести сюда функцию и запускать в боте!
 from bots.models import User, Division, Game, TelegramUser
+from .data import *
 errors = []
 
 # username = match_res.group('player_name')
@@ -20,6 +21,7 @@ def create_telegram_user(tg_name, tg_id):
 	return tg_user.id
 
 def cut_links(links):
+	links = links.replace('\n', ',')
 	links = links.replace('https://lichess.org/', '')
 	return links
 
@@ -56,14 +58,19 @@ def store_game(match_res):
 	cutting_links = cut_links(match_res.group('links'))
 	pl_score = match_res.group('player_score').replace(',','.')
 	opp_score = match_res.group('opponent_score').replace(',','.')
+
+	if Game.objects.filter(tour=match_res.group('tour'),player_id=pl_id, opponent_id=opp_id).count() > 0:
+		error = 'Такая игра уже записана.'
+		errors.append(error)
+
 	if len(errors) != 0:
 		print(errors)
-		# write_file(self, '\n'.join(errors))
 		return '\n'.join(errors)
+
 	try:
 		game = Game(tour=match_res.group('tour'), division_id=div_id, player_id=pl_id, opponent_id=opp_id, player_score=pl_score, opponent_score=opp_score, links=cutting_links)
 		game.clean_fields()
 		game.save()
 	except Exception as e:
 		return str(e)
-	return 'Ваша игра сохранена.'
+	return save_game_message
