@@ -82,7 +82,5 @@ class Bot():
             self.handle(update)
             time.sleep(3)
 
-
 # bot = Bot(token)
-# print(bot.handle({'update_id': 897082096, 'message': {'message_id': 7, 'from': {'id': 1107539029, 'is_bot': False, 'first_name': 'Олечка', 'last_name': 'Васильева', 'username': 'vasilyook', 'language_code': 'ru'}, 'chat': {'id': 1107539029, 'first_name': 'Олечка', 'last_name': 'Васильева', 'username': 'vasilyook', 'type': 'private'}, 'date': 1635879528, 'text': '/help', 'entities': [{'offset': 0, 'length': 5, 'type': 'bot_command'}]}}))
 # bot.polling()
