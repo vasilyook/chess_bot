@@ -5,8 +5,10 @@ help_text = 'Нажмите /add, чтобы сохранить результа
 add_text = '''
 Отправьте мне, пожалуйста, номер тура, игроков, счет и ссылки.
 Пример: #6турВ
-Магнус Карлсен - Iron Alex
+Магнус Карлсен - Саша Айрон
 1-1
 https://lichess.org/VYjg3OT9AAWg
 https://lichess.org/OcrEGVDIFBd2
 '''
+save_game_message = 'Топы! Игра сохранена.'
+saved_games = 'Перейдите по ссылке, чтобы посмореть все прошедшие игры. https://diystory.online/bots/games'
