@@ -4,12 +4,17 @@ from dotenv import load_dotenv
 from .chess import Chess
 import json
 import os
+from .models import Game
+from django.shortcuts import  render
+
+def index(request):
+    saved_games = Game.objects.order_by('-id')
+    context = {'saved_games': saved_games}
+    return render(request, 'games/index.html', context)
+
 
 load_dotenv()
 token = os.getenv("TOKEN")
-
-def index(request):
-    return JsonResponse({"message": "ok"})
 
 @csrf_exempt
 def webhook(request):
