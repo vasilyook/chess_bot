@@ -1,10 +1,11 @@
 {% if saved_games %}
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
-<table class="table">
+<div class="container">
+<table class="table" style="margin: 0 auto;">
   <thead>
     <tr>
       <th>Тур</th>
-      <th><abbr title="Дивизион">Див</abbr></th>
+      <th title="Дивизион">Див</th>
       <th>Матч</th>
       <th>Счёт</th>
       <th>Ссылки</th>
@@ -16,8 +17,8 @@
     <tr>
       <td>{{ game.tour }}</td>
       <td>{{ game.division }}</td>
-      <td>{{ game.player}} ' - ' {{ game.opponent }}</td>
-      <td>{{ game.player_score }} ' - ' {{ game.opponent_score }}</td>
+      <td>{{ game.player}} - {{ game.opponent }}</td>
+      <td>{{ game.player_score }} - {{ game.opponent_score }}</td>
       <td>
         <ul>
             {% for link in game.get_links %}
@@ -28,7 +29,7 @@
         </ul>
       </td>
     {% endfor %}
-
+</div>
 {% else %}
     <p>No games.</p>
 {% endif %}
