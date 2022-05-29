@@ -17,6 +17,9 @@ class Chess(Bot):
 		text = store_game(match_res)
 		return self.send_message(text, self.update.get_id())
 
+	def games(self):
+		return self.send_message(saved_games, self.update.get_id())
+
 	def call_command(self):
 		telegram_id = self.update.get_id()
 		command = self.update.get_command()
