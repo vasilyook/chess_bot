@@ -10,5 +10,6 @@ add_text = '''
 https://lichess.org/VYjg3OT9AAWg
 https://lichess.org/OcrEGVDIFBd2
 '''
+command_not_exist = 'Такой команды нет в моем списке. Вот список доступных команд:'
 save_game_message = 'Топы! Игра сохранена.'
 saved_games = 'Перейдите по ссылке, чтобы посмореть все прошедшие игры. https://diystory.online/bots/games'

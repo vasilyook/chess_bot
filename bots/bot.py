@@ -53,6 +53,8 @@ class Bot():
         self.update = self.Update(update)
 
         if self.update.get_type() == 'bot_command':
+            if self.update.get_command() not in self.commands:
+                return self.send_message(command_not_exist + '\n/' + '\n/'.join(self.commands), self.update.get_id())
             return self.call_command()
         return self.answer()
 

@@ -6,6 +6,11 @@ import os
 import re
 
 class Chess(Bot):
+	_commands = ['start', 'help', 'add', 'games']
+	@property
+	def commands(self):
+		return self._commands
+
 	def add(self):
 		return 	self.send_message(add_text, self.update.get_id())
 
