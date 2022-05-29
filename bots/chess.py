@@ -16,7 +16,7 @@ class Chess(Bot):
 
 	def answer(self):
 		message = self.update.get_text()
-		match_res = re.search(r'#?(?P<tour>\d+)\s*(?:тур)*\s*(?P<division>\w?)\s*\n*(?P<player_name>(?:\w+\s*)+)\s*-?:?\s*(?P<opponent_name>(?:\w+\s*)+)\s*\n*(?P<player_score>\d+\.?\,?\d?)-?:?\s*(?P<opponent_score>\d+\.?\,?\d?)\s*\n*(?P<links>https?:\/\/lichess\.org\/\w+\s*\n*(?:https?:\/\/lichess\.org\/\w+)*)', message)
+		match_res = re.search(r'#?(?P<tour>\d+)\s*(?:тур)*\s*(?P<division>\w+)\s*\n*(?P<player_name>(?:\w+\s*)+)\s*-?:?\s*(?P<opponent_name>(?:\w+\s*)+)\s*\n*(?P<player_score>\d+\.?\,?\d?)-?:?\s*(?P<opponent_score>\d+\.?\,?\d?)\s*\n*(?P<links>https?:\/\/lichess\.org\/\w+\s*\n*(?:https?:\/\/lichess\.org\/\w+)*)', message)
 		if match_res == None:
 			return self.send_message('Сообщение не соответствует формату.' + add_text, self.update.get_id())
 		text = store_game(match_res)
