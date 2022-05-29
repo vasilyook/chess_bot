@@ -8,6 +8,6 @@ load_dotenv()
 token = os.getenv("TOKEN")
 
 urlpatterns = [
-    path('', views.index, name='index'),
+    path('games', views.index, name='index'),
     path('webhooks/telegram' + token, views.webhook),
 ]
