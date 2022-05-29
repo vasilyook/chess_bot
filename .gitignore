@@ -1,5 +1,6 @@
 .env
 db.sqlite3
+bots/run_bot.py
 bots/views2.py
 bots/__pycache__
 bots/migrations/__pycache__
