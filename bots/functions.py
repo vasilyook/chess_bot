@@ -1,9 +1,12 @@
 # можно вынести сюда функцию и запускать в боте!
 from bots.models import User, Division, Game, TelegramUser
 from .data import *
+
 errors = []
 
 # username = match_res.group('player_name')
+
+
 
 def create_user(username):
 	user = User(name = username)
@@ -49,6 +52,11 @@ def update_last_command(pk, command):
 	user = TelegramUser.objects.get(id=pk)
 	user.last_command = command
 	user.save()
+
+def write_file(filename, message):
+	message_file = open(filename, 'a+')
+	message_file.write(message)
+	message_file.close()
 
 def store_game(match_res):
 	errors.clear()
