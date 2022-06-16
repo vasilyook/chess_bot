@@ -52,7 +52,7 @@ def update_last_command(pk, command):
 
 def store_game(match_res):
 	errors.clear()
-	div_id = check_division(match_res.group('division'))
+	div_id = check_division(match_res.group('division').upper())
 	pl_id = check_user(match_res.group('player_name'))
 	opp_id = check_user(match_res.group('opponent_name'))
 	cutting_links = cut_links(match_res.group('links'))
